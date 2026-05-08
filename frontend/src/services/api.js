@@ -4,6 +4,14 @@ import axios from 'axios';
 const API  = 'https://visitwise-ai.onrender.com/api';
 const PRED = 'https://visitwise-ai-2.onrender.com';
 
+export const loginUser = (data) => 
+  axios.post(`${API}/auth/login`, data)
+    .then(res => res.data);
+
+export const registerUser = (data) => 
+  axios.post(`${API}/auth/register`, data)
+    .then(res => res.data);
+
 export const getPlaces = (category='all', search='', lat=null, lng=null) =>
   axios.get(`${API}/places`, { params:{category,search,lat,lng} }).then(r=>r.data);
 
