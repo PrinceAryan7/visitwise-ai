@@ -1,8 +1,8 @@
 // frontend/src/services/api.js
 import axios from 'axios';
 
-const API  = 'http://localhost:5000/api';
-const PRED = 'http://localhost:8001';
+const API  = 'https://visitwise-ai.onrender.com/api';
+const PRED = 'https://visitwise-ai-2.onrender.com';
 
 export const getPlaces = (category='all', search='', lat=null, lng=null) =>
   axios.get(`${API}/places`, { params:{category,search,lat,lng} }).then(r=>r.data);
