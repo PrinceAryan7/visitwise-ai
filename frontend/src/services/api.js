@@ -1,8 +1,8 @@
 // frontend/src/services/api.js
 import axios from 'axios';
 
-const API  = 'https://visitwise-ai.onrender.com/api';
-const PRED = 'https://visitwise-ai-2.onrender.com';
+const API  = process.env.REACT_APP_API_URL || 'https://visitwise-ai.onrender.com/api';
+const PRED = process.env.REACT_APP_PREDICTION_URL || 'https://visitwise-ai-2.onrender.com';
 
 export const loginUser = (data) => 
   axios.post(`${API}/auth/login`, data)
