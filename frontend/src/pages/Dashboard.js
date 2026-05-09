@@ -393,7 +393,7 @@ function AddPlaceForm({onSuccess}){
     e.preventDefault();if(!form.name.trim()){setError('Place name is required');return;}
     setLoad(true);setError('');
     try{
-      const res=await fetch('http://visitwise-ai.onrender.com/api/places',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${localStorage.getItem('vw_token')}`},body:JSON.stringify(form)});
+      const res=await fetch(`${process.env.REACT_APP_API_URL || 'https://visitwise-ai.onrender.com/api'}/places`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${localStorage.getItem('vw_token')}`},body:JSON.stringify(form)});
       const data=await res.json();if(!res.ok) throw new Error(data.error||'Failed');
       onSuccess(form.name);setForm({name:'',category:'tourist',address:'',latitude:'',longitude:''});
     }catch(err){setError(err.message);}finally{setLoad(false);}
